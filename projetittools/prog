@@ -1,0 +1,31 @@
+
+##To replace ; in , 
+ cat '/home/touloum/projetbd/Prix2013.csv' | sed 's|;|,|g' > /home/touloum/projetbd/Prix13.csv
+ cat '/home/touloum/projetbd/Prix2014.csv' | sed 's|;|,|g' > /home/touloum/projetbd/Prix14.csv
+ cat '/home/touloum/projetbd/Prix2015.csv' | sed 's|;|,|g' > /home/touloum/projetbd/Prix15.csv
+
+
+# 3 files in three files
+cat Prix13 Prix14 Prix 15> data_projet.csv
+
+
+## Create table with datas
+
+create table price(id int, cp int, pop string, 
+				   lat int, longi int, datee string, type int, name string, prix int)
+
+ROW FORMAT DELIMITED
+
+fields terminated by ','
+
+lines terminated by '\n'
+stored as PARQUETFILE;
+
+
+LOAD DATA local INPATH '/tmp/test/da.csv' INTO TABLE price;
+
+
+
+hadoop fs -get /tmp/big_data/zd.csv /tmp/test
+
+
